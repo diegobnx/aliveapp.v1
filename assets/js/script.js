@@ -70,6 +70,7 @@ function cat(cat) {
     } else {
         aliveApi(categ).then(data => {
             aliveJson = data;
+            updateCart();
             data.list.map((item, index) => {
                 let aliveItem = c('.models .alive-item').cloneNode(true);
 
@@ -175,11 +176,13 @@ c('.aliveInfo--addButton').addEventListener('click', () => {
 c('.menu-openner').addEventListener('click', () => {
     if (cart.length > 0) {
         c('aside').style.left = 0;
+        c('aside').classList.add('show');
     }
 });
 
 c('.menu-closer').addEventListener('click', () => {
     c('aside').style.left = '100vw'
+    c('aside').classList.remove('show');
 });
 
 
